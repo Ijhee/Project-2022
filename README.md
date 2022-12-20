@@ -35,15 +35,24 @@
 
   3. #### Reference Point of Permutation Importance : Index Based Selection
 
-  > 개요 : PCA를 통해 데이터를 설명변수 2개와 독립변수 1개의 데이터로 축소한 후, 각 label의 predict proba가 가장 높은 값을 원의 중심점으로 지정한 뒤  
-  > 해당 원 내에 데이터를 랜덤으로 생성 
+  > 개요 : Permutation Importance에서 산출된 변수의 중요도를 기반으로 학습에 도움이 되는 변수와 도움이 되지 않는 변수의 reference point를 제공.
   > 
-  > github : <https://github.com/Ijhee/Project-2022/tree/main/2)%202DAugmentation>
+  > github : <https://github.com/Ijhee/Project-2022/tree/main/3)%20IBS>
   > 
-  > 역할 : EDA & Modeling (기여도 : 50%)
+  > 역할 : Paper Research & Data Processing & Modeling (기여도 : 40%)
   > 
-  > 프로젝트 참여인원 : 2명
+  > 프로젝트 참여인원 : 3명
   > 
   > 의의 : 확률을 기준으로 생성한 원 내부의 좌표점들을 이용함으로서 데이터 증강에서의 새로운 아이디어를 제공.
 
   4. #### Data augmentation and statistical hypothesis test to predict unbalanced insurance data
+
+  > 개요 : 불균형한 데이터에서의 데이터 증강 기법 적용과 통계적 가설 검정 방법을 주안으로 둔 데어터 분석 프로젝트
+  > 
+  > github : <https://github.com/Ijhee/Project-2022/tree/main/4)%20%ED%86%B5%EA%B3%84%EC%B5%9C%EA%B0%95%EC%9E%90%EC%A0%84>
+  > 
+  > 역할 : EDA & Visualization & DataProcessing & Model Selection (기여도 : 30%)
+  > 
+  > 프로젝트 참여인원 : 5명
+  > 
+  > 의의 : MCC 지표를 이용하여 불균형 데이터에서의 통계적 가설방법을 적용했고, 시각화-전처리-모델선택-변수선택-모델링-가설검정-결과도출까지 짜임새있는 프로젝트 진행.
