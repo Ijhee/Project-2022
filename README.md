@@ -6,7 +6,7 @@
 
 
 
-### ☑️  INDEX
+### ✅ INDEX
 
   1. #### Prediction of Starbucks Coordinates Using Coordinates of Other Commercial
   
