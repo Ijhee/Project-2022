@@ -1,4 +1,4 @@
-## 🌟 Project-2022
+## 🌟&nbsp;&nbsp;Project-2022
 
 ---
 
@@ -6,7 +6,7 @@
 
 
 
-### ✅ INDEX
+### 📌 &nbsp;&nbsp;INDEX
 
   1. #### Prediction of Starbucks Coordinates Using Coordinates of Other Commercial
   
