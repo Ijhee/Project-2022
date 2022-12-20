@@ -24,6 +24,8 @@
   > 다음으로 데이터는 transpose하는 관점으로 다이소, 스타벅스, 이디야, 올리브영의 경도/위도 값들을 변수로 지정한다. 또한 haveasine packaage를 이용하여 위도, 경도값을 통해 이디야-다이소, 다이소-올리브영, 올리브영-이디야 간의 실제 거리를 측정한 뒤 해당 값들을 새로운 변수로 추가한다. 세 거리, 즉 세 선분을 이으면 삼각형이 만들어지므로 각 삼각형의 모양 및 넓이도 범주화 시켜 변수로 지정한다. 위 그림이 최종적인 데이터 모양이다.
 
 - #### 3) Modeling
+  > #### 사용모델 : LinearRegression, SVM, RandomForestRegressor, LGBMRegressor, XGBRegressor </br>
+  > 
   > ##### ✓ ver1) </br>
   > 
   > Train Data : X -> 이디야, 올리브영, 다이소의 경도 & Y -> EDA 데이터에서 스타벅스의 위도/경도 </br>
@@ -64,3 +66,5 @@
   > 
   > Model1 : 위도 + 경도 학습 -> 경도 예측 / Model2: 위도 + 경도 학습 -> 위도 예측</br>
   > 
+- #### 4) Result Analysis
+<https://github.com/Ijhee/Project-2022/blob/main/1)%20Starbucks/Analysis.ipynb>
