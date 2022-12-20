@@ -8,5 +8,5 @@
 
 #### 목차
 
-1. Prediction of # Starbucks # Coordinates By Using Coordinates of Other Commercial
-2. 
+1. Prediction of Starbucks Coordinates By Using Coordinates of Other Commercial
+2. Reference Point of Permutation Importance : Index Based Selection
