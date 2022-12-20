@@ -8,5 +8,7 @@
 
 #### 목차
 
-1. Prediction of Starbucks Coordinates By Using Coordinates of Other Commercial
-2. Reference Point of Permutation Importance : Index Based Selection
+  1. Prediction of Starbucks Coordinates Using Coordinates of Other Commercial
+  2. Data Augmentation in Two-Dimensional Space Using Clustering Techniques
+  3. Reference Point of Permutation Importance : Index Based Selection  
+  4. Data augmentation and statistical hypothesis test to predict unbalanced insurance data
