@@ -70,3 +70,9 @@
   > <https://github.com/Ijhee/Project-2022/blob/main/1)%20Starbucks/Analysis.ipynb> </br>
 
 - #### 5) Visualization
+  > ![image](https://user-images.githubusercontent.com/96717686/208903870-ea622d7e-2975-43ce-ab42-6b063c715795.png)
+  > 
+  > 모델이 예측한 스타벅스의 위치와 정답 간의 실제 거리가 가장 작은 경우를 시각화했다.</br></br>
+  빨간색 마커가 다이소, 파랑색 마커가 이디야, 분홍색 마커가 올리브영, 연두색 마커가 스타벅스이다. 다이소, 이디야, 올리브영으로 삼각형을 만들어냈으며 해당 삼각형의 넓이와 모양을 변수에 추가한 것이다. </br></br>
+  > ![image](https://user-images.githubusercontent.com/96717686/208909936-198f343d-ae9a-4183-9cce-dbb6d54058dc.png)</br>
+  > 예측 위치와 정답 위치 간의 거리를 측정한 결과이며 두 값간의 실제 거리가 약 74m 정도 차이난다.
