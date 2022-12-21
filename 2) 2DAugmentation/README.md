@@ -1,5 +1,5 @@
 ## ⏺ Data Augmentation in Two-Dimensional Space based on the Predict Proba of the Model
-  > 2차원으로 매핑한 데이터를 Model의 Predict Proba에 기반하여 데이터를 증강한다
+  > 2차원으로 매핑한 데이터를 Model의 Predict Proba에 기반하여 데이터를 증강
 
 ---
 
