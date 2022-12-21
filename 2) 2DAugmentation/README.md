@@ -1,4 +1,4 @@
-## Data Augmentation in Two-Dimensional Space based on the Predict Proba of the Model
+## ⏺ Data Augmentation in Two-Dimensional Space based on the Predict Proba of the Model
   > 2차원으로 매핑한 데이터를 Model의 Predict Proba에 기반하여 데이터를 증강한다
 
 ---
@@ -9,7 +9,7 @@ Model에서 제공하는 predict proba는 개별 데이터가 예측한 클래�
 
 ### 📌&nbsp;&nbsp;Process
 - #### 1) DATA
-  > Data는 Kaggle에 있는 데이터를 이용했으며, 실험데이터는 총 5개로 구성했다. 각 데이터는 train test split 함수를 통해 Train data와 Test data로 분리한다.
+  > Kaggle에 있는 데이터를 이용했으며, 실험데이터는 총 5개로 구성했다. 각 데이터는 train test split 함수를 통해 Train data와 Test data로 분리한다.
 - #### 2) PCA
   > ![image](https://user-images.githubusercontent.com/96717686/208847768-52e4d0c5-8af3-44ba-bb7a-87f847ffc38b.png)</br>
   > 
