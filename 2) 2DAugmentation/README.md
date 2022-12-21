@@ -29,4 +29,4 @@ Model에서 제공하는 predict proba는 개별 데이터가 예측한 클래�
   > [![image](https://user-images.githubusercontent.com/96717686/208855575-db5fd3b4-f37d-4dcd-9c36-43396cd94239.png)
 ](https://gaesae.com/164)
   >
-  >  RandomforestClassifier로 accuracy를 측정했으며, 본 그래프는 데이터 증강한 Accuracy - 데이터 증강하지 않을 시 Accuracy 를 나타냈다. 음수 값일 경우가 더 많기 떄문에 
+  >  RandomforestClassifier로 accuracy를 측정했으며, 본 그래프는 데이터 증강한 Accuracy - 데이터 증강하지 않을 시 Accuracy 를 나타냈다. 음수 값일 경우가 더 많기 떄문에 대체적으로 데이터를 증강한 경우보다 데이터를 증강하지 않을 떄의 성능이 더 좋다고 평가할 수 있다. 해당 이유는 원을 그리기 위해 2차원으로 원본 데이터를 PCA 했기 때문에 원본 데이터의 정보가 손실됨에 따라 성능이 낮게 나온 것으로 예측된다. 따라서 성능이 좋지 않기 때문에 성공한 프로젝트라 볼 수 없으나, 기존의 데이터 증강과 다른 컨셉을 제시했다는 점에 의의가 있다.
