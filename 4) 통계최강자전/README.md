@@ -35,10 +35,16 @@ Region Code 변수는 Policy Sales Channel과 마찬가지로 특정 지역의 �
 <img width="350" alt="image" src="https://user-images.githubusercontent.com/96717686/209927713-7befc2e6-2ea3-495f-be30-813e76a65999.png"></br></br>
 종속변수인 Response의 분포를 살펴보면 Response가 0 인 경우, 즉 고객이 자사 보험 가입 의향이 없는 경우가 의향이 있는 경우보다 많다. 의향이 없는 경우는 전체 데이 터의 83.6%, 의향이 있는 경우는 전체 데이터의 16.4%로 종속 변수의 분포가 imbalance 한 것을 확인할 수 있다.</br></br>
 #### 2. 독립변수들 간의 관계 시각화 </br></br>
-- Vehicle Age & Vehicle Damage
-<img width="360" alt="image" src="https://user-images.githubusercontent.com/96717686/209928008-1f278c26-69c3-4f6f-b2f8-25ee7070c986.png">
-위 그림은 Vehicle Damage변수와 Vehicle Age변수의 관계에 대한 정보를 담고 있다. 본인 소유 자동차 연식이 1년 미만임에도 불구하고 자동차 파손 이력 여부가 있는 고객들 이 41,634명이 있는 것을 확인할 수 있으며 해당 고객들을 고위험군으로 분류할 수 있다. 이에 반해 본인 소유 자동차 연식이 2년 초과일 때 자동차 파손 이력 여부가 없는 고객들이 11명이 있는 것을 볼 수 있고 해당 고객들을 저위험군으로 분류할 수 있다.
-- Previously Insured & Vehicle Damage
-<img width="350" alt="image" src="https://user-images.githubusercontent.com/96717686/209928127-3652e13b-1beb-44a9-955c-6c96b5449784.png">
-위 그림은 Vehicle Damage 변수와 Previously Insured변수의 관계에 대한 정보 를 담고 있다. 타사 보험을 가입한 적이 존재하지 않지만(Previously_Insured : 0) 자동차 파손을 한 경험이 존재하는 (Vehicle_Damage : Yes) 고객들이 총 175,282명이 있음을 확인할 수 있다. 해당 고객들은 보험을 가입하지 않고 자동차 파손을 경험한 적이 있기에 위험군으로 분류할 수 있다.
-
+- Vehicle Age & Vehicle Damage</br></br>
+<img width="360" alt="image" src="https://user-images.githubusercontent.com/96717686/209928008-1f278c26-69c3-4f6f-b2f8-25ee7070c986.png"></br></br>
+위 그림은 Vehicle Damage변수와 Vehicle Age변수의 관계에 대한 정보를 담고 있다. 본인 소유 자동차 연식이 1년 미만임에도 불구하고 자동차 파손 이력 여부가 있는 고객들 이 41,634명이 있는 것을 확인할 수 있으며 해당 고객들을 고위험군으로 분류할 수 있다. 이에 반해 본인 소유 자동차 연식이 2년 초과일 때 자동차 파손 이력 여부가 없는 고객들이 11명이 있는 것을 볼 수 있고 해당 고객들을 저위험군으로 분류할 수 있다.</br></br>
+- Previously Insured & Vehicle Damage</br></br>
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/96717686/209928127-3652e13b-1beb-44a9-955c-6c96b5449784.png"></br></br>
+위 그림은 Vehicle Damage 변수와 Previously Insured변수의 관계에 대한 정보 를 담고 있다. 타사 보험을 가입한 적이 존재하지 않지만(Previously_Insured : 0) 자동차 파손을 한 경험이 존재하는 (Vehicle_Damage : Yes) 고객들이 총 175,282명이 있음을 확인할 수 있다. 해당 고객들은 보험을 가입하지 않고 자동차 파손을 경험한 적이 있기에 위험군으로 분류할 수 있다.</br></br>
+#### 3. 독립변수와 종수변수 간의 관계 시각화 </br></br>
+- Vehicle Age & Response</br></br>
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/96717686/209928238-06bb3dc8-9cf7-4261-8a11-473f0161b601.png"></br></br>
+Vehicle Age 변수와 종속변수인 Response변수의 관계에 대한 정보를 담고 있다. 본인 소유 자동차 연식이 1년 미만일 경우 자사 보험 가입 의향이 없는 비율 (Response=0)이 95%, 본인 소유 자동차 연식이 1년 이상 ~2년 이하일 경우 자사 보험 가입 의향이 없는 비율이 76%, 본인 소유 자동차 연식이 2년 초과일 경우 자사 보험 가입 의향이 없 는 비율이 60%이다. 이 결과 자동차 연식에 따라서 종속변수의 비율이 변한다고 판단할 수 있으 며, 해당 분석 결과를 이용하여 Sub Modeling을 진행했다.</br></br>
+- Previously Insured & Response</br></br>
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/96717686/209928431-75cf04e3-91b3-41bd-96c7-07a758bf4f4a.png"></br></br>
+Previously Insured 변수와 종속변수인 Response 변수의 관계에 대한 정보를 담고 있다. 타사 보험 가입을 하고, 자사 보험 가입 의향이 있는 135명의 고객이 존 재하며 해당 고객의 연령대 분포는 그림 21과 같이 나타난다. 해당 고객들의 연령대가 전체 데이 터의 연령대에 비해 낮은 것을 알 수 있다. 따라서 타사 보험 가입을 하고 자사 보험까지 가입한 고객들은 젊고 자산이 많을 가능성이 있음을 파악했다.</br></br>
