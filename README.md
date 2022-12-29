@@ -49,7 +49,7 @@
 
   > 개요 : 불균형한 데이터에서의 데이터 증강 기법 적용과 통계적 가설 검정 방법을 주안으로 둔 데어터 분석 프로젝트
   > 
-  > github : <https://github.com/Ijhee/Project-2022/tree/main/4)%20%ED%86%B5%EA%B3%84%EC%B5%9C%EA%B0%95%EC%9E%90%EC%A0%84>
+  > github : <https://github.com/Ijhee/Project-2022/tree/main/4)%20Data%20augmentation%20and%20statistical%20hypothesis%20test%20to%20predict%20unbalanced%20insurance%20data>
   > 
   > 역할 : EDA & Visualization & DataProcessing & Model Selection (기여도 : 30%)
   > 
