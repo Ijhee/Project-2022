@@ -51,10 +51,22 @@ Previously Insured 변수와 종속변수인 Response 변수의 관계에 대한
 
 ### 📌&nbsp;&nbsp;4) Data Processing</br></br>
 #### 1. 이상치 처리 </br></br>
-- 본 분석에서는 총 3가지 데이터 전처리 기법을 적용했다. 처음 과정은 이상치 처리 과정 이다. 그림 4에서 확인할 수 있듯이 Boxplot을 확인했을 때는 Annual_Premium 변수 외에는 IQR 기준의 이상치를 확인할 수 없었다. 또한 Annual Premium 변수는 최소값인 2,630이 전체 데이터 의 16%를 차지하고 있을 뿐만 아니라 다수의 값들이 상대적으로 작은 값을 가진다. 따라서 값들 의 분포가 몰려 있으며 이에 따라 이상치의 개수가 굉장히 많은 것을 확인할 수 있다. 하지만 해 당 이상치들을 다 제거하게 될 경우 변수의 고유한 분포를 왜곡시키는 상이한 분포를 형성할 수 있기 때문에 IQR 기준의 이상치 값들을 제거하지 않았다. IQR 기준 이상치를 삭제하지 않은 반면 개별 데이터 자체의 논리가 성립하지 않는 경우를 탐색하여 데이터 수집 과정에서 생긴 오류라고 판단한 후 해당 케이스를 제거했다. 운전면허를 소지하지 않았는데 본인 소유 자동차가 파손된 고객들의 경우가 그 예시이며 이는 논리적으로 성립할 수 없다고 판단하여 해당 데이터를 의미론 적 이상치로 판단한 후 제거했다.</br></br>
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209929303-b079399b-47dd-4b4d-905d-75c095b9553a.png"> </br></br>
+- 본 분석에서는 총 3가지 데이터 전처리 기법을 적용했다. 처음 과정은 이상치 처리 과정 이다. Boxplot을 확인했을 때는 Annual_Premium 변수 외에는 IQR 기준의 이상치를 확인할 수 없었다. 또한 Annual Premium 변수는 최소값인 2,630이 전체 데이터 의 16%를 차지하고 있을 뿐만 아니라 다수의 값들이 상대적으로 작은 값을 가진다. 따라서 값들 의 분포가 몰려 있으며 이에 따라 이상치의 개수가 굉장히 많은 것을 확인할 수 있다. 하지만 해 당 이상치들을 다 제거하게 될 경우 변수의 고유한 분포를 왜곡시키는 상이한 분포를 형성할 수 있기 때문에 IQR 기준의 이상치 값들을 제거하지 않았다. IQR 기준 이상치를 삭제하지 않은 반면 개별 데이터 자체의 논리가 성립하지 않는 경우를 탐색하여 데이터 수집 과정에서 생긴 오류라고 판단한 후 해당 케이스를 제거했다. 운전면허를 소지하지 않았는데 본인 소유 자동차가 파손된 고객들의 경우가 그 예시이며 이는 논리적으로 성립할 수 없다고 판단하여 해당 데이터를 의미론 적 이상치로 판단한 후 제거했다.</br></br>
 #### 2. 인코딩 </br></br>
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209929355-721dd45d-8a4e-415c-b4cd-275856a6bedd.png"> </br></br>
 - 인코딩 과정에서는 Label Encoding과 One-hot Encoding 총 2가지 방법론을 채택하였다. Label Encoding은 각 범주들을 알파벳 순서대로 숫자를 할당하여 변환하는 방법론이다. 이에 달
 리 One-hot Encoding은 해당 변수의 각 범주들에 따라 Dummy Variable을 추가하는 방법이다.</br></br>
 #### 3. 변수추가 </br></br>
 - 총 10개의 변수를 추가했으며, 자세한 내용은 보고서에 기입되어 있으니 확인해주시면 감사하겠습니다.</br></br>
-### 📌&nbsp;&nbsp;4) Data Processing
+### 📌&nbsp;&nbsp;5) Modeling</br></br>
+#### 1. Model Selection </br></br>
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209929590-6a76377d-be0e-4045-b934-6f36bb208777.png"></br></br>
+<img width="825" alt="image" src="https://user-images.githubusercontent.com/96717686/209929520-c5201c98-119c-4ada-8139-e8badfa82dff.png"></br></br>
+- 분석에서 사용할 모델을 선택하는 과정에서 임의성을 최대한 배제하기 위해 Model Selection의 과정을 거치게 되었다. 특정 모델을 분석에 사용하기 위해서는 모델과 데이터의 적합성을 평가해야 한다. 이를 위해 전체 데이터의 10%에 해당하는 부분집합부터 개수를 늘려가 전체 데이터의 100%에 해당하는 부분집합까지 총 10개의 부분집합을 생성한 후 데이터의 개수가 증가함에 따라 모델의 성능이 상승하는 관계성을 검토한다. 데이터의 개수와 모델의 성능이 양의 상관관계를 지니고 있음이 파악되면 해당 데이터 는 이 모델로 평가하기에 적합하다는 결론을 내릴 수 있게 되는 것이다. 본 분석에서는 위 그림의 결과를 바탕으로 CatBoostClassifier, LGBMClassifier, RandomForestClassifier, LogisticRegression, SGDClassifier의 5개 모델을 선정하였다.</br></br>
+#### 2. Variable Selection </br></br>
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209929822-b48759db-b7d8-4cb0-867c-3917510b23cd.png"></br></br>
+- 두번째는 Permutation Importance Method를 통한 변수 선택이다. Permutation Method는 Filter Method의 일례로서 개별 변수들의 중요도를 내림차순으로 정렬해 특정 임계점을 넘는 변 수만을 선택하여 최종 모형에 사용하는 방식으로 동작한다. 개별 변수의 중요도는 해당 변수가 포함되었을 때의 모델 성능에서, 배제되었을 때의 모델 성능을 빼는 과정을 통해 도출할 수 있다. 해당 변수를 제거하여 성능을 도출하기 위해서는 적합(fit)하는 과정을 변수 별로 두번씩 진행해야 하기 때문에 Permutation Importance는 해당 변수를 Shuffle하여 제거와 동일한 효과를 유도한다. 이 과정에서 중요도가 음수가 나오게 될 경우 해당 변수가 존재하지 않는 것이 모델의 성능을 향 상한다고 판단할 수 있기 때문에 임계점은 ‘0’ 으로 설정하는 것이 타당하다.</br></br>
+#### 3. Variable Selection </br></br>
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209929929-07108c14-03c0-4ae1-9a6f-7b9eab555d30.png"></br></br>
+- 세번째는 Sub-Modeling이다. Sub-Modeling은 전처리가 완료된 데이터를 두 부분집합으 로 분할하여 각각 다른 모델을 통해 병렬적으로 학습한 후 최종 결과를 종합하여 평가하는 방식 을 일컫는 용어이다. 앞서 언급한 바와 같이 “Vehicle Age”를 기준으로 데이터를 분할했을 때 특 정 부분집합에서 종속 변수가 균형적인 분포를 보이고 있음을 알 수 있었다. Sub-Modeling은 종 속변수의 상이한 분포를 각기 다른 모델을 통해 학습하여 불균형한 데이터가 지니는 문제점을 해 결할 수 있을 것이라는 기대효과가 존재한다.</br></br>
