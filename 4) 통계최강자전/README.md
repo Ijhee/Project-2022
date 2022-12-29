@@ -4,6 +4,7 @@
 ---
 
 ### 📌&nbsp;&nbsp;1) Purpose of Project
+
 - &nbsp;&nbsp;머신러닝 기법을 활용한 예측의 과정에서 사용되는 데이터의 품질은 최종 예측 성능에 굉장히 많은 영향을 끼치는 것으로 알려져 있다. 하지만 데이터의 수집 과정과 수집 방법에 따른 데이터의 품질이 예측의 성능을 좌우하는 경향성을 불균형 데이터에서는 찾아보기 어렵다. 일례 로 예측의 평가 지표로 가장 많이 사용되는 정확도(Accuracy)는 모델의 학습 양상과 무관하게 불 균형 데이터에서 대부분 높은 수치를 기록한다. 두 범주의 비율이 굉장히 편향되어있기에 복잡한 데이터의 형태를 학습하여 예측하지 않고 단순히 다수의 범주로 통일하여 예측할 경우에도 높은 정확도를 기록할 수 있기 때문이다. 이러한 상황을 Paradox of Accuracy라 일컫기도 한다.</br>
 &nbsp;&nbsp;정확도 지표를 통해 예측 성능을 측정하는 대다수의 경우에서는 해당 문제를 간과할 수 있다. 하지만 실생활에서는 다수의 경우를 높은 확률로 예측에 성공하는 것 만큼 소수의 경우를 판별하여 정확하고 예리하게 예측하는 것이 중요한 경우들이 존재한다. 신용카드 사기와 같이 개 인에게 심각한 악영향을 끼치는 예시를 생각해볼 수 있다. 하루에 신용카드를 통한 결제가 이루 어지는 사례는 셀 수 없이 많고 이 중 사기 거래가 이루어지는 경우는 극히 드물 것이라는 것을 알 수 있다. 따라서 어떤 모델이 특정 기간 동안의 신용카드 거래 정보를 수집하여 학습하고 정 상/사기 거래를 예측하는 과정에서 모든 거래가 정상이라 예측하여도 정확도는 99퍼센트 이상을 상회할 것이다. 하지만 높은 정확도의 이면에는 사기 거래의 피해자를 수혜할 수 있는 방안이 사 라지는 단점이 존재하게 되는 것이다.</br>
 &nbsp;&nbsp;이를 해결하기 위해서 정확도 뿐만 아니라 정밀도(Precision), 재현율(Recall) 그리고 이 두 지표를 적절히 혼합한 F1 지표를 사용하여 다각화된 분석을 진행하고 있다. 다양한 평가지표를
@@ -12,7 +13,8 @@
 ### 📌&nbsp;&nbsp;2) Data Introducing</br></br>
 <p align="center">
 <img width="750" alt="image" src="https://user-images.githubusercontent.com/96717686/209924828-dd2a7fe5-b27f-4769-abaa-397e82b103f3.png">
-<img width="750" alt="image" src="https://user-images.githubusercontent.com/96717686/209924882-87447de0-6a6e-47e3-a590-c40fbf038b15.png"></p>
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/96717686/209924882-87447de0-6a6e-47e3-a590-c40fbf038b15.png"></p></br>
+
 - 본 분석에 사용된 데이터는 382,154개의 행과 12개의 열로 이루어져 있다. Gender, Driving License, Region Code, Previously Age, Vehicle Damage, Vehicle Age, Annaul Premium 변수들은 범 주형 변수들이며 그 외 변수들은 연속형 변수이다. 또한 해당 데이터에는 결측치가 존재하지 않는다.</br>
 분석에 사용된 데이터는 11개의 설명변수와 Response라는 종속변수로 구성되어 있다. 설 명변수 중 Id, Gender, Age, Region Code 변수들을 통해 고객들의 기본 정보를 알 수 있으며, Driving License, Vehicle Age, Vehicle Damage 변수들을 통해 고객들의 자동차 관련 정보들을 알 수 있다. 또한 고객들이 자사 보험과 1회 이상 접촉한 후에 가입 의향을 조사한 데이터이므로 Policy Sales Channel 변수와 Vintage변수를 통해 자사 보험 접촉 경로 및 접촉 시기 등을 알 수 있다. 추가적으로 접촉했을 당시 책정된 보험료를 Annual Premium 변수에서 확인할 수 있으며 Response는 종속변수로 고객이 자사 보험에 가입하고 싶은지에 대한 여부에 대한 정보를 담고 있다.</br></br>
 
@@ -78,18 +80,24 @@ Previously Insured 변수와 종속변수인 Response 변수의 관계에 대한
 - 최종 모델링 과정에서는 전처리가 완료된 데이터에 변수 선택과 데이터 증강을 순차적으로 적용하여 사전에 선택된 모델의 성능을 기록하게 된다. 또한 실험에 사용되는 데이터는 Model AB-trainN1-N2.csv 의 형태를 띄게 된다. Model 은 앞서 모델 선택에서 선정된 CatBoostClassifier, LGBMClassifier, RandomForestClassifier, Logistic Regression, SGDClassifier 의 다섯개 중 하나가 되며, A 는 변수 추가 여부에 따라 추가되었을 경우 V, 추가되지 않을 경우 O 가 된다. B 는 sub-modeling 여부에 따라 sub-modeling 을 진행했을 경우 bi, 진행하지 않았을 경우 f 가 된다. N1 은 전처리 경우의 수에 따라 1 부터 4 까지 경우의 수가 되며 N2 는 증강 기법에 따라 0 부터 9 의 값 중 하나를 할당받는다. 따라서 실험에 사용될 전체 데이터의 개수는 800 가지이다.</br></br>
 ### 📌&nbsp;&nbsp;6) Test and interpret results</br></br>
 #### 기존 평가지표의 한계점 </br></br>
-<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930703-c1b814c4-fe42-459c-9c74-6ad0c1e5b61b.png">
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930703-c1b814c4-fe42-459c-9c74-6ad0c1e5b61b.png"></br>
+
 - Accuracy는 머신러닝의 분류 평가 지표 중 하나로 대부분의 분석에서 중요한 지표로서 사용된다. 하지만 불균형 데이터를 분류함에 있어 Accuracy는 더이상 좋은 측도가 될 수 없다. 그 이유는 분류기가 데이터 개수가 더 많은 Real Negative 집단에 편향된 학습을 진행하기에 Real Positive 집단은 거의 고려하지 못하기 때문이다. 또다른 성능 지표로서 Precision 및 Recall과 이 둘의 조화평균인 F-measure가 불균형 데 이터를 분류하는데 사용되었다. 하지만 이 세 지표 모두 오로지 True Positive만을 판단하는 기준 이기에 True Negative는 전혀 고려하지 않는다는 단점이 있다. 특히 F-measure은 Precision과 Recall의 가중평균으로 표현되고 이 가중치가 분류기에 따라 달라지기에 성능 지표로서 약점을 지 니고 있다.</br></br>
 결국, 기존 평가 지표로서 Accuracy와 F-measure은 불균형 데이터를 다루는데 있어 신뢰 할 수 없는 결과를 낳는다. 하지만 MCC는 Confusion Matrix의 모든 값을 고려하였기에 다른 성능 지표보다 더 많은 정보를 담고 있다. 또한, 불균형 데이터를 분류할 때 가장 신뢰할 만한 평가 지표로 알려져 있다. </br></br>
 #### MCC </br></br>
 <img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930818-6a3fc1e9-225f-404b-8976-7912cf2e4314.png"></br></br>
+
 - MCC는 Bookmaker Informedness와 Markedness의 기하 평균으로 나타낼 수 있다. Confusion Matrix을 이용하여 피어슨 카이제곱 검정을 통해 파악된 Bookmaker Informedness 및 Markedness의 추정치를 바탕으로 MCC 추정치 또한 계산이 가능하다. 따라서 P-value를 통하여 해당 추정치가 예상된 범위 내의 값인지 판단할 수 있다. 본 분석에서는 MCC 추정치와 χ2(0.99,1) ≈ 6.63을 기준으로 적합도 검정을 실시하였고 이를 바탕으로 예상과 실제로 발생한 빈도의 차이가 적은 결과들을 선별하였다. 그리고 그 결과 들 중 MCC가 높은 상위 100개를 추출한 후 Accuracy가 높은 모형을 최종 결과물로 선정하였다.</br></br>
 ### 📌&nbsp;&nbsp;6) Test and interpret results</br></br>
-<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930914-8e52aeac-010b-4fe4-a4f9-e216bdd948d4.png">
+<img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930914-8e52aeac-010b-4fe4-a4f9-e216bdd948d4.png"></br>
+
 - 본 실험은 총 800개의 데이터에 대해서 진행되었으며 각각은 사용한 모델의 개수 5가지, 전처리 경우의 수 16가지, 데이터 증강 기법 10가지 경우의 수의 모든 조합으로 구성되어 있다. 이 중 앞서 언급한 바와 같이 chi검정을 통과한 결과 중 MCC 상위 100개의 결과를 분석하였다. 분석의 대상인 상위 100 개의 결과들은 Accuracy 의 한계점을 극복했다고 판단했으며 그림 32 와 표 33 에 나타나 있는 바와 같이 해당 결과 중 LGBMClassifier 을 사용하였을 때 Accuracy 91.04% 로 가장 좋은 성능을 거두었음을 알 수 있었다.</br></br>
 <img width="850" alt="image" src="https://user-images.githubusercontent.com/96717686/209930990-2d9edb8c-c623-412b-97a7-99e298759325.png"></br></br>
+
 - CatBoostClassifier, LGBMClassifier, RandomForest, LogisticRegression SGDClassifier 의 5 개 모델 중 CatBoostClassifier 은 상위 100 개의 결과물 중 한 개도 포함되지 못했으며 다른 모델은 각각 19개, 24개, 43개, 14개가 포함되었다. 상위 100개에 포함될 기대값인 20개를 기준으로 판단했을 때 LogisticRegression 이 가장 유의한 결과를 기록했음을 알 수 있다. 그림 34 는 모델 별 정확도를 Boxplot 으로 표현하고 있다. 이를 통해 LGBMClassifier 와 RandomForestClasifier 가 여타 모델에 비해 좋은 성능을 거두고 있음을 확인할 수 있다. 또한 모델 별 정확도 지표의 평균 등수를 계산했을 때에는, RandomForest 가 31 등을 기록해 평균적으로 가장 좋은 성능을기록함을 알 수 있었고, LGBMClassifier 가 43 등, LogisticRegression 이 58 등, SGDClassifier 가 62 등을 기록했다. Boxplot 통해 모델 별 정확도의 분포를 파악할 수 있다.</br></br>
+
 - 이후 데이터를 처리한 방법론에 따른 세가지 결과 분석을 진행했다. 첫번째는 변수 추가 여부에 따른 결과 차이 분석이고 두번째는 인코딩/이상치 처리 여부에 따른 결과 차이 분석이며 마지막은 Sub-modeling에 따른 결과 차이 분석이다. 변수 추가 여부에 따른 결과는 새로운 변수 를 추가하지 않은 데이터 44개와 새로운 변수를 추가한 데이터 56개가 최종 상위 100개의 결과 에 포함되었다. 또한 Accuracy Boxplot을 통해 새로운 변수를 추가하는 것은 성능 향상 에 도움이 되었다는 사실을 파악할 수 있었다. 인코딩/이상치는 총 4가지 세부 경우의 수로 분할 되는데 1번 경우의 수는 Label Encoding과 이상치 처리 적용이며 2번 경우의 수는 Label Encoding과 이상치 처리 미적용, 3번 경우의 수는 One-Hot Encoding과 이상치 처리 적용, 4번 경 우의 수는 One-Hot Encoding과 이상치 처리 미적용이 그 각각의 경우이다. 이 경우 1번과 2번 데이터가 각각 53개, 30개 포함되어 기대값인 25개를 넘어서는 경향성을 보였다. 하지만 3번 전처리 결과 (One-Hot Encoding / 이상치 처리 적용)가 평균적으로 성능이 가장 좋은 것을 알 수 있었다. 마지막으로 Sub-modeling여부에 따른 분석에서는 Sub-Modeling을 한 경우가 81개로 압도적인 차이를 보였다. Sub Modeling을 진행했을 경우의 성능이 압도적으로 높게 측정되었음을 확인할 수 있다.</br></br>
+
 - 데이터 증강의 경우에는 사용 방법론 3 가지와 종속변수의 비율 3 가지, 그리고 증강을 적용하지 않은 경우의 수를 포함한 10 가지 데이터가 파생되었다. 데이터를 증강하지 않은 경우는 오직 한 개가 상위 100 개 결과에 포함되었기 때문에 증강을 통해 Imbalance Data 를 효과적으로 처리할 수 있음을 알 수 있었다. 또한 SMOTE 방법론을 적용했을 때의 데이터가 각각 17,16, 13개 포함되어 기대값인 10개를 넘어서는 양상을 보였다. SMOTE 방법론을 적용한 5, 6, 7 번의 평균 성능이 여타 기법보다 우수함을 알 수 있다.</br></br>
 ### 📌&nbsp;&nbsp;7) Limitation of work & Future work</br></br>
 - 분석을 진행하는 과정 속에서 3가지 한계점과 3가지 의의를 찾을 수 있었다. 우선 모든 모델링 과정에서 진행한 하이퍼 파라미터 튜닝 과정이 오로지 국한된 범위 내에서만 진행된 것이 첫번째 한계점이다. 하이퍼 파라미터를 올바르게 튜닝하기 위해서는 모든 범위 내에서 시각화를 병행하며 가장 좋은 성능을 보이는 지점을 찾아야 했으나 범용적으로 사용되는 범위 내에서만 이 과정을 진행하였다. 두번째 한계점은 데이터 증강과 통계적 가설 검정이 보험 데이터가 지니는 특수성 때문에 다른 데이터에도 일반적으로 적용하기 어렵다는 것이다. 마지막 한계점은 변수를 선택하는 과정에서 오직 Permutation Importance 방법론만 적용했다는 것이다. Drop Column Importance, IBS 등 다양한 방법을 적용해서 비교하지 못했기 때문에 다소 편향적인 결과가 도출 되었을 가능성을 배제하기 어렵다.</br></br>
