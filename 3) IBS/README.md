@@ -1,5 +1,5 @@
 ## 📝&nbsp;&nbsp;&nbsp;Reference Point of Permutation Importance : Index Based Selection (On going Paper)
-> Index를 기반으로 Permutation Importance의 Reference Poin를 제공
+> Index를 기반으로 Permutation Importance의 Reference Point를 제공
 ---
 
 ### 📌&nbsp;&nbsp;Purpose of Project
